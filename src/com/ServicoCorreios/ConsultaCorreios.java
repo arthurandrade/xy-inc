@@ -1,4 +1,4 @@
-package com.ServicoCorreios;
+package com.servicoCorreios;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
