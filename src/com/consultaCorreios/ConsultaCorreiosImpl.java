@@ -1,6 +1,7 @@
 package com.consultaCorreios;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +37,9 @@ public class ConsultaCorreiosImpl implements ConsultaCorreios{
 	
 	private List<CorreioBean> busca(String item) throws Exception {
 		try {
-			Document doc = Jsoup.connect(String.format(BASE_URL, item)).get();
+			
+			String value = URLEncoder.encode(item, "ISO-8859-1"); 
+			Document doc = Jsoup.connect(String.format(BASE_URL, value)).get();
 			Elements rows = doc.getElementsByAttributeValueMatching("onclick",
 					"javascript:detalharCep.*");
 			
@@ -64,7 +67,7 @@ public class ConsultaCorreiosImpl implements ConsultaCorreios{
 		
 		ConsultaCorreiosImpl con = new ConsultaCorreiosImpl();
 		List<CorreioBean> ret = new ArrayList<CorreioBean>();
-		ret = con.busca("Rua Duarte de Souza");
+		ret = con.busca("Rua José Duarte de Souza");
 		for(CorreioBean item : ret){
 			System.out.println(item.toString());
 		}
