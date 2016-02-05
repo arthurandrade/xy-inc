@@ -22,7 +22,7 @@ public class CriarSaida {
 				lograd.put("CEP", end.getCep());
 				lograd.put("Logradouro", end.getLogradouro());
 				lograd.put("Bairro", end.getBairro());
-				lograd.put("Localidade", end.getLocalidade());
+				lograd.put("Localidade", end.getLocalidade()+"/"+end.getUf());
 				listLogr.put(lograd);
 
 			}
