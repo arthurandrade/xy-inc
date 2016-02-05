@@ -25,18 +25,13 @@ Foi criado um teste para testar a API, por meio do JUnit.
 Serviços providos
 ========
 
-```xml
+
 
 [http://localhost:8080/xy-inc/buscaCep/13564030](http://localhost:8080/xy-inc/buscaCep/13564030)
-
-```   
+ 
 e
 
-```xml
-
-http://localhost:8080/xyinc/services/cep/buscarCepPorEndereco?logradouro=Rondon%20Pacheco%20Uberlandia
-
-```
+[http://localhost:8080/xy-inc/buscarEnd/Rua%20Jos%C3%A9%20Duarte%20de%20Souza](http://localhost:8080/xy-inc/buscarEnd/Rua%20Jos%C3%A9%20Duarte%20de%20Souza)
 
 Como por exemplo o resultado mostrado da primeira consulta é:
 
