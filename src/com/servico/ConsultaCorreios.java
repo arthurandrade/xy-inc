@@ -1,8 +1,8 @@
-package com.consultaCorreios;
+package com.servico;
 
 import java.util.List;
 
-import com.beans.CorreioBean;
+import com.bean.CorreioBean;
 
 public interface ConsultaCorreios {
 	

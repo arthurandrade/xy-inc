@@ -1,4 +1,4 @@
-package com.beans;
+package com.bean;
 
 public class CorreioBean {
 	private String cep;
