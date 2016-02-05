@@ -15,10 +15,25 @@ import org.jsoup.select.Elements;
 import com.bean.CorreioBean;
 import com.excecao.ValidacaoExecao;
 
+/**
+ * Consulta no ao site dos correios * 
+ * @author Arthur Andrade
+ */
+
 public class ConsultaCorreiosImpl implements ConsultaCorreios {
 
 	private static final String BASE_URL = "http://www.buscacep.correios.com.br/servicos/dnec/consultaEnderecoAction.do?relaxation=%s&TipoCep=ALL&semelhante=S&cfm=1&Metodo=listaLogradouro&TipoConsulta=relaxation";
 
+	
+	
+	/**
+	 * Retorna uma lista de endereços relacionados com o CEP.
+	 * Ocorrendo um erro ou item não encontrado é disparado um exceção.
+	 * 
+	 * @param cep - cep passado com paramentro
+	 * @return
+	 * @throws Exception 
+	 */
 	@Override
 	public List<CorreioBean> buscarCep(String cep) throws Exception {
 
@@ -33,6 +48,15 @@ public class ConsultaCorreiosImpl implements ConsultaCorreios {
 
 		return listEndereco;
 	}
+	
+	/**
+	 * Retorna uma lista de endereços relacionados com o logradouro.
+	 * Ocorrendo um erro ou item não encontrado é disparado um exceção.
+	 * 
+	 * @param cep - cep passado com paramentro
+	 * @return
+	 * @throws Exception 
+	 */
 
 	@Override
 	public List<CorreioBean> buscarEndereco(String logradouro) throws Exception {
@@ -48,6 +72,15 @@ public class ConsultaCorreiosImpl implements ConsultaCorreios {
 							+ logradouro + "", null);
 		return listaEnd;
 	}
+	
+	/**
+	 * Retorna uma lista de endereços relacionados com parametro passado.
+	 * Ocorrendo um erro ou item não encontrado é disparado um exceção.
+	 * 
+	 * @param item - cep ou logradouro
+	 * @return
+	 * @throws Exception 
+	 */
 
 	private List<CorreioBean> busca(String item) throws Exception {
 		try {
@@ -87,7 +120,7 @@ public class ConsultaCorreiosImpl implements ConsultaCorreios {
 		Matcher matcher = pattern.matcher(cep.replace("-", ""));
 
 		if (!matcher.find()) {
-			throw new ValidacaoExecao("O Cep: " + cep + " é inválido!", null);
+			throw new ValidacaoExecao("O Cep " + cep + " é inválido!", null);
 		}
 
 	}
@@ -102,7 +135,7 @@ public class ConsultaCorreiosImpl implements ConsultaCorreios {
 
 		ConsultaCorreiosImpl con = new ConsultaCorreiosImpl();
 		List<CorreioBean> ret = new ArrayList<CorreioBean>();
-		ret = con.buscarEndereco("Rua José Duarte de Souza");
+		ret = con.buscarEndereco("Avenida Sao Carlos");
 		for (CorreioBean item : ret) {
 			System.out.println(item.toString());
 		}

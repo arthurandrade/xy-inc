@@ -15,7 +15,10 @@ import com.bean.CorreioBean;
 import com.excecao.ValidacaoExecao;
 import com.servico.ConsultaCorreios;
 import com.utils.CriarSaida;
-
+/**
+ * Contem os servidos providos de consulta 
+ * @author Arthur Andrade
+ */
 @RestController
 public class CorreioControle {
 
@@ -29,6 +32,13 @@ public class CorreioControle {
 
 	}
 
+	
+	/**
+	 * Retorna uma lista de endereços relacionados com cep passado. 
+	 * @param item - cep 
+	 * @return
+	 * @throws Exception 
+	 */
 	@RequestMapping(value = "/buscaCep/{cep}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public String buscaCep(@PathVariable String cep) throws Exception {
 		List<CorreioBean> listEndereco = null;
@@ -45,14 +55,20 @@ public class CorreioControle {
 
 	}
 
-	@RequestMapping(value = "/buscarEnd/{endereco}", method = RequestMethod.GET, headers = "Accept=application/json")
+	/**
+	 * Retorna uma lista de endereços relacionados com logradouro passado. 
+	 * @param item - logradouro 
+	 * @return
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/buscarEnd/{logradouro}", method = RequestMethod.GET, headers = "Accept=application/json")
 	@ResponseBody
-	public String buscarEnd(@PathVariable String endereco) throws Exception {
+	public String buscarEnd(@PathVariable String logradouro) throws Exception {
 
 		List<CorreioBean> listEndereco;
 		try {
 
-			listEndereco = consultaCorreios.buscarEndereco(endereco);
+			listEndereco = consultaCorreios.buscarEndereco(logradouro);
 
 		} catch (ValidacaoExecao endE) {
 			return "{erro:" + endE.getMessage() + "}";

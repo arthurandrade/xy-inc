@@ -1,4 +1,9 @@
 package com.bean;
+/**
+ * Classe contém dados de endereço 
+ * @author Arthur Andrade
+ *
+ */
 
 public class CorreioBean {
 	private String cep;

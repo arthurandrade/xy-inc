@@ -7,7 +7,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.bean.CorreioBean;
-
+/**
+ * Realisa a montagem do json ou xml 
+ * @author Arthur Andrade
+ */
 public class CriarSaida {
 
 	public static String montaMensagemRetornoJSON(List<CorreioBean> ends) {
@@ -35,12 +38,7 @@ public class CriarSaida {
 
 	}
 
-	/**
-	 * Prepara a mensagem de retorno para um ou mais CEP
-	 * 
-	 * @param ceps
-	 * @return
-	 */
+	
 	public static String montaMensagemRetornoXML(List<CorreioBean> ends) {
 
 		StringBuilder sd = new StringBuilder();
